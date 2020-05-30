@@ -24,4 +24,13 @@ public interface CarDao {
 
     @Insert("insert into carMessage(carName,carType,price,carSeries) values(#{carName},#{carType},#{price},#{carSeries})")
     void insertCar(Car car);
+
+    @Select("select carNumber from carMessage where carName = #{carName} and carType = #{carType} and carSeries = #{carSeries}")
+    Integer queryCarNumber(Car car);
+
+    @Update("update carMessage set carNumber=#{carNumber} where carName = #{car.carName} and carType = #{car.carType} and carSeries = #{car.carSeries}")
+    void updateCarNum(Car car, Integer carNumber);
+
+    @Select("select * from carMessage where carName like CONCAT(CONCAT('%', #{keyWord}), '%') limit #{pageNo}, #{pageSize}")
+    List<Car> fuzzyQuery(String keyWord, Integer pageNo, Integer pageSize);
 }

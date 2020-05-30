@@ -6,6 +6,17 @@ public class Car {
     private String carType;
     private String price;
     private String carSeries;
+    private String carNumber;
+
+
+    public String getCarNumber() {
+        return carNumber;
+    }
+
+    public void setCarNumber(String carNumber) {
+        this.carNumber = carNumber;
+    }
+
 
     public int getId() {
         return id;

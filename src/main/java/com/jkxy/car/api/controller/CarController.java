@@ -83,4 +83,28 @@ public class CarController {
         carService.insertCar(car);
         return JSONResult.ok();
     }
+
+    /**
+     * 购买车辆
+     *
+     * @param car
+     * @return
+     */
+    @PostMapping("purchaseCar")
+    public JSONResult purchaseCar(Car car, Integer carNumber) {
+        String msg = carService.purchaseCar(car, carNumber);
+        return JSONResult.purchaseMsg(msg);
+    }
+
+    /**
+     * 购买车辆
+     *
+     * @param keyWord
+     * @return
+     */
+    @PostMapping("fuzzyQuery")
+    public JSONResult fuzzyQuery(String keyWord, Integer pageNo, Integer pageSize) {
+        List<Car> carList = carService.fuzzyQuery(keyWord, pageNo, pageSize);
+        return JSONResult.ok(carList);
+    }
 }

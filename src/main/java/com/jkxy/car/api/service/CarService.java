@@ -17,4 +17,9 @@ public interface CarService {
     void updateById(Car car);
 
     void insertCar(Car car);
+
+    String purchaseCar(Car car,Integer number);
+
+    List<Car> fuzzyQuery(String keyWord,Integer pageNo,Integer pageSize);
+
 }

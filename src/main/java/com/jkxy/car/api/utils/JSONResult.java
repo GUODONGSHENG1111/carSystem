@@ -32,6 +32,10 @@ public class JSONResult {
         return new JSONResult(null);
     }
 
+    public static JSONResult purchaseMsg(String msg) {
+        return new JSONResult(200, msg, null);
+    }
+
     public static JSONResult errorMsg(String msg) {
         return new JSONResult(500, msg, null);
     }
